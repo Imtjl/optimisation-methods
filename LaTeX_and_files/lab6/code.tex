@@ -1,15 +1,16 @@
+\subsection{Программная реализация}
+
+\begin{lstlisting}
 import random
 import numpy as np
 
 MUTATION_RATE = 0.01
-
 
 def calculate_path_sum(path, dist_matrix):
     return (
         sum(dist_matrix[path[i]][path[i + 1]] for i in range(len(path) - 1))
         + dist_matrix[path[-1]][path[0]]
     )
-
 
 def crossover(parent1, parent2, points):
     child = (
@@ -18,7 +19,6 @@ def crossover(parent1, parent2, points):
         + parent1[points[1]:]
     )
     return child
-
 
 def mutate(individual):
     if random.random() < MUTATION_RATE:
@@ -31,7 +31,6 @@ def mutate(individual):
 def create_population(size, num_cities):
     return [random.sample(range(num_cities), num_cities) for _ in range(size)]
 
-
 def select_parents(population, fitnesses):
     return [
         population[i]
@@ -40,12 +39,10 @@ def select_parents(population, fitnesses):
         )
     ]
 
-
 def print_population_info(population, fitnesses, generation):
     print(f"Generation {generation+1}:")
     print("Population:", population)
     print("Distances:", fitnesses)
-
 
 def genetic_algorithm(num_cities, dist_matrix, pop_size, num_generations):
     population = create_population(pop_size, num_cities)
@@ -104,7 +101,6 @@ def genetic_algorithm(num_cities, dist_matrix, pop_size, num_generations):
     best_route = min(population, key=lambda x: calculate_path_sum(x, dist_matrix))
     return best_route, calculate_path_sum(best_route, dist_matrix)
 
-
 if __name__ == "__main__":
     num_cities = int(input("Enter the number of cities: "))
     print("Enter the distance matrix:")
@@ -116,3 +112,114 @@ if __name__ == "__main__":
         num_cities, dist_matrix, pop_size, num_generations
     )
     print(f"\nBest route: {best_route}, Distance: {best_distance}")
+\end{lstlisting}
+
+\subsection{Пользовательский ввод}
+
+\begin{verbatim}
+Enter number of cities: 5
+Enter matrix: 
+0 4 5 3 8
+4 0 7 6 8
+5 7 0 7 9
+3 6 7 0 9
+8 8 9 9 0
+Enter population size: 4
+Enter number of generations: 2
+\end{verbatim}
+
+\subsection{Вывод программы}
+
+\begin{verbatim}
+GENERATION 1
+Population:
+[[4, 2, 0, 3, 1], [2, 1, 3, 0, 4], [1, 4, 0, 2, 3], [2, 1, 0, 4, 3]]
+Lengths:
+[31, 33, 34, 35]
+
+Pair 1: [0, 1]
+Parent 1: 4 2 | 0 3 | 1
+Parent 2: 2 1 | 3 0 | 4
+Child 1: 1 4 3 0 2
+Child 2: 4 2 0 3 1
+
+Pair 2: [0, 1]
+Parent 1: 4 | 2 0 3 1 | 
+Parent 2: 2 | 1 3 0 4 | 
+Child 1: 2 1 3 0 4
+Child 2: 4 2 0 3 1
+
+Enlarged population:
+[[4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [1, 4, 3, 0, 2],
+ [2, 1, 3, 0, 4],
+ [2, 1, 3, 0, 4],
+ [1, 4, 0, 2, 3],
+ [2, 1, 0, 4, 3]]
+Lengths:
+[31, 31, 31, 32, 33, 33, 34, 35]
+
+GENERATION 2
+Population:
+[[4, 2, 0, 3, 1], [4, 2, 0, 3, 1], [4, 2, 0, 3, 1], [1, 4, 3, 0, 2]]
+Lengths:
+[31, 31, 31, 32]
+
+Pair 1: [0, 2]
+Parent 1: 4 2 0 | 3 1 | 
+Parent 2: 4 2 0 | 3 1 | 
+Child 1: 4 2 0 3 1
+Child 2: 4 2 0 3 1
+
+Pair 2: [1, 3]
+Parent 1:  | 4 2 0 3 | 1
+Parent 2:  | 1 4 3 0 | 2
+Child 1: 1 4 3 0 2
+Child 2: 4 2 0 3 1
+
+Enlarged population:
+[[4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [1, 4, 3, 0, 2],
+ [1, 4, 3, 0, 2]]
+Lengths:
+[31, 31, 31, 31, 31, 31, 32, 32]
+
+GENERATION 3
+Population:
+[[4, 2, 0, 3, 1], [4, 2, 0, 3, 1], [4, 2, 0, 3, 1], [4, 2, 0, 3, 1]]
+Lengths:
+[31, 31, 31, 31]
+
+Pair 1: [2, 1]
+Parent 1: 4 2 | 0 3 | 1
+Parent 2: 4 2 | 0 3 | 1
+Child 1: 1 4 0 3 2
+Child 2: 1 4 0 3 2
+
+Pair 2: [1, 0]
+Parent 1: 4 | 2 0 3 1 | 
+Parent 2: 4 | 2 0 3 1 | 
+Child 1: 4 2 0 3 1
+Child 2: 4 2 0 3 1
+
+Enlarged population:
+[[4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [4, 2, 0, 3, 1],
+ [1, 4, 0, 3, 2],
+ [1, 4, 0, 3, 2]]
+Lengths:
+[31, 31, 31, 31, 31, 31, 33, 33]
+
+Result after 3 generations is [4, 2, 0, 3, 1] with length 31
+\end{verbatim}

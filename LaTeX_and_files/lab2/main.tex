@@ -1,0 +1,74 @@
+\documentclass[a4paper]{article}
+\usepackage[14pt]{extsizes}
+\usepackage[russian]{babel}
+\usepackage[left=20mm, top=15mm, right=15mm, bottom=15mm]{geometry}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listingsutf8}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+% Дополнительная настройка для языка Rust
+\lstdefinelanguage{Rust}{
+    morekeywords={true, false, match, let, mut, ref, enum, fn, impl, pub, self, Self, use, super, trait, where, as, struct},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[s]{r#"}{"#},
+    morestring=[s]{r##"}{"##},
+    morestring=[s]{r###"}{"###},
+}
+
+% Настройка вида листинга
+\lstset{
+    language=Rust,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    rulecolor=\color{black},
+    tabsize=4,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    escapeinside={\%*}{*)},
+    morekeywords={match, let, mut, ref, enum, fn, impl, pub, self, Self, use, super, trait, where, as, struct}, % добавляем ключевые слова Rust
+}
+
+
+% -----------------------------------------------------
+
+\begin{document} 
+
+% Title page
+\input{title}
+
+% Description
+\input{descr}
+
+% Code
+\input{code}
+
+% Forth section - Examples of code usage
+% \input{examples}
+
+% Fith section - Conclusion
+\section{Вывод программы}
+Метод половинного деления: 0.734375 \\
+Метод золотого сечения: 0.7360679774997897 \\
+Метод хорд: 0.736298997613654 \\
+Метод Ньютона: 0.7552224171056364 \\
+
+\end{document}

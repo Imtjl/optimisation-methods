@@ -78,8 +78,8 @@ fn steepest_descent(func: &MyFunction, x0: f64, y0: f64, eps: f64, max_iter: usi
 
         // Выводим информацию о текущей итерации
         println!(
-            "Итерация {}: (x, y) = ({:.6}, {:.6}), градиент = ({:.6}, {:.6}), alpha = {:.6}",
-            iter, x, y, dx, dy, alpha
+            "Итерация {}: (x, y) = ({:.6}, {:.6}), градиент = ({:.6}, {:.6}), alpha = {:.6}, func = {:.6}",
+            iter, x, y, dx, dy, alpha, func.f(x, y)
         );
 
         // Вычисляем новые значения x и y, делая шаг в направлении, противоположном градиенту
@@ -138,7 +138,7 @@ fn main() {
     let y0 = 0.0;
     let alpha = 0.1;
     let eps = 1e-6;
-    let max_iter = 10;
+    let max_iter = 100;
 
     println!("### Градиентный спуск ###");
     println!("Начальная точка: (x0, y0) = ({}, {})", x0, y0);

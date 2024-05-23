@@ -1,0 +1,251 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[a4paper, margin=1in]{geometry}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+\begin{document}
+
+\section*{Задание 2}
+
+\[
+G = \begin{pmatrix}
+0 & 1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 1 & 0 & 0 & 1 \\
+0 & 0 & 0 & 1 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{pmatrix}
+\]
+
+\[
+\begin{aligned}
+d1 &= 9 \\
+d2 &= 15 \\
+d3 &= d4 = 0 \\
+d5 &= -4 \\
+d6 &= -8 \\
+d7 &= -12 \\
+r15 &= 2 \\
+r27 &= 2 \\
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+C12 &= 1 & C24 &= 3 \\
+C15 &= 1 & C23 &= 2 \\
+C27 &= 6 & C34 &= 7 \\
+C36 &= 9 \\
+C45 &= 10 & C53 &= 10 \\
+C56 &= 9 & C67 &= 4 \\
+\end{aligned}
+\]
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+i & $d_i$ & $(i,j)$ & $C_{ij}$ & $r_{ij}$ \\
+\hline
+1 & 9 & (1,2), (1,5) & 1, 1 & -, 2 \\
+2 & 15 & (2,3), (2,7), (2,4) & 2, 6, 3 & -, 2, - \\
+3 & 0 & (3,4), (3,6) & 7, 9 & -, - \\
+4 & 0 & (4,5) & 10 & - \\
+5 & -4 & (5,3), (5,6) & 10, 9 & -, - \\
+6 & -8 & (6,7) & 4 & - \\
+7 & -12 & - & - & - \\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{equation*}
+I: 
+\begin{cases}
+(1;2)/1 \quad (1;8)/2 \\
+(2;3)/3 \quad (2;10)/3 \quad (2;4)/4 \\
+(3;4)/10 \quad (3;6)/12 \\
+(4;5)/14 \\
+(5;6)/22 \quad (6;7)/16 \\
+\end{cases}
+\end{equation*}
+
+\[
+\begin{aligned}
+1 &\rightarrow 5: 1, 2, 4, 5 \\
+1 &\rightarrow 6: 1, 2, 3, 6 \\
+1 &\rightarrow 7: 1, 2, 3, 6, 7 \\
+1 &\rightarrow 8: 1, 8 \\
+1 &\rightarrow 10: 1, 2, 10 \\
+\end{aligned}
+\]
+
+
+\begin{equation*}
+II: 
+\begin{cases}
+(2;3)/2 \quad (2;10)/2 \quad (2;4)/3 \\
+(3;4)/9 \quad (3;6)/11 \\
+(4;5)/13 \\
+(5;6)/21 \quad (6;7)/15 \\
+\end{cases}
+\end{equation*}
+
+\[
+\begin{aligned}
+2 &\rightarrow 5: 2, 4, 5 \\
+2 &\rightarrow 6: 2, 3, 6 \\
+2 &\rightarrow 7: 2, 3, 6, 7 \\
+2 &\rightarrow 8: - \\
+2 &\rightarrow 10: 2, 10 \\
+\end{aligned}
+\]
+
+\begin{equation*}
+III: 
+\begin{cases}
+(9;8)/0 \quad (9;5)/0 \\
+(5;6)/9 \\
+(6;7)/13 \\
+\end{cases}
+\end{equation*}
+
+\[
+\begin{aligned}
+9 &\rightarrow 5: 9, 5 \\
+9 &\rightarrow 6: 9, 5, 6 \\
+9 &\rightarrow 7: 9, 5, 6, 7 \\
+9 &\rightarrow 8: 9, 8 \\
+9 &\rightarrow 10: - \\
+\end{aligned}
+\]
+
+\begin{equation*}
+IV: 
+\begin{cases}
+(11;10)/0 \quad (11;7)/0 \\
+\end{cases}
+\end{equation*}
+
+\[
+\begin{aligned}
+11 &\rightarrow 5: - \\
+11 &\rightarrow 6: - \\
+11 &\rightarrow 7: 11, 7 \\
+11 &\rightarrow 8: - \\
+11 &\rightarrow 10: 11, 10 \\
+\end{aligned}
+\]
+
+\newpage
+\subsection*{Метод потенциалов}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|C{0.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1cm}|C{0.5cm}|C{0.5cm}|C{0.5cm}|C{0.5cm}|}
+\hline
+- & 5 & 6 & 7 & 8 & 10 & a & & & &\\
+\hline
+1 & 14 & 12 & 16 & 2 & 3 & 9 & 7 & 0 & & &
+  &    &    & /7 & /2&   &   & & & & &
+  \hline
+2 & 13 & 11 & 15 & - & 2 & 15 & 13 & 5 & 3 & 0 &
+  & /2 & /8 & /3 &   & /2&   & &   & & &
+  \hline
+9 & 0 & 9 & 13 & 0 & - & 2 & 0 &   & & &
+& /2 & &  & & &  & &   & & &
+\hline
+11 & - & - & 0 & - & 0 & 2 & &   & & &
+   &   &   & /2 & & &  & &   & & &
+\hline
+b & 4 & 8 & 12 & 2 & 2 & &   & & &\\
+\hline
+& 2 & 0 & 10 & 0 & 0 & &   & & &\\
+\hline
+& 0 & & 7 & & & &   & & &\\
+\hline
+& & & 0 & & & &   & & &\\
+\hline
+\end{tabular}
+\end{table}
+
+\[
+\hspace{120pt}
+\begin{aligned}
+u1 + v3 &= 16 \\
+u1 + v4 &= 2 \\
+u2 + v1 &= 13 \\
+u2 + v2 &= 11 \\
+u2 + v3 &= 15 \\
+u2 + v5 &= 2 \\
+u3 + v1 &= 0 \\
+u4 + v3 &= 0 \\
+\end{aligned}
+\hspace{90pt} 
+\begin{aligned}
+u1 &= 0 \\
+v3 &= 16 \\
+v4 &= 2 \\
+u2 &= -1 \\
+v1 &= 14 \\
+v2 &= 12 \\
+v5 &= 3 \\
+u3 &= -14 \\
+u4 &= -16 \\
+\end{aligned}
+\]
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|C{0.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1.5cm}|C{1cm}|}
+\hline
+& 5 & 6 & 7 & 8 & 10 & u \\
+& & &  & & &  & 
+\hline
+1 & 14 & 12 & 16 & 2 & 3 & 0 \\
+& & &  & & &  & 
+\hline
+2 & 13 & 11 & 15 & - & 2 & -1 \\
+& & &  & & &  & 
+\hline
+9 & 0 & 9 & 13 & 0 & -12 & -14 \\
+& & &  & & &  & 
+\hline
+11 & - & - & 0 & - & 0 & -16 \\
+& & &  & & &  & 
+\hline
+v & 14 & 12 & 16 & 2 & 3 & \\
+\hline
+\end{tabular}
+\end{table}
+
+\[
+f = 16 \times 7 + 2 \times 2 + 13 \times 2 + 11 \times 8 + 15 \times 3 + 2 \times 2 = 279
+\]
+
+\newpage
+
+\[
+\begin{aligned}
+1 &\rightarrow 7: 1, 2, 3, 6, 7 \\
+1 &\rightarrow 8: 1, 8 \\
+2 &\rightarrow 5: 2, 4, 5 \\
+2 &\rightarrow 6: 2, 3, 6 \\
+2 &\rightarrow 7: 2, 3, 6, 7 \\
+2 &\rightarrow 10: 2, 10 \\
+9 &\rightarrow 5: 9, 5 \\
+11 &\rightarrow 7: 11, 7 \\
+\end{aligned}
+\]
+
+
+\end{document}

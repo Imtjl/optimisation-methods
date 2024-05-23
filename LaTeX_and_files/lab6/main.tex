@@ -1,0 +1,42 @@
+\documentclass[a4paper]{article}
+\usepackage[14pt]{extsizes}
+\usepackage[russian]{babel}
+\usepackage[left=20mm, top=15mm, right=15mm, bottom=15mm]{geometry}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listingsutf8}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\lstset{
+    language=Python,                  % Язык программирования
+    basicstyle=\ttfamily\small,       % Размер и тип шрифта
+    keywordstyle=\color{blue},        % Стиль ключевых слов
+    stringstyle=\color{red},          % Стиль строк
+    commentstyle=\color{gray},        % Стиль комментариев
+    commentstyle=\color{gray},        % Стиль комментариев
+    breaklines=true,                  % Перенос длинных строк
+    numbers=left,                     % Нумерация строк слева
+    numberstyle=\tiny\color{gray},    % Стиль нумерованных строк
+    frame=single,                     % Рамка вокруг кода
+    showstringspaces=false            % Не показывать пробелы в строках
+}
+
+
+% -----------------------------------------------------
+
+\begin{document} 
+
+% Title page
+\input{title}
+
+% Description
+\input{descr}
+
+% Code
+\input{code}
+
+\end{document}
