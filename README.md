@@ -3,9 +3,8 @@
 This repository contains code, LaTeX documents, and scanned work related to the
 Optimization Methods course at ITMO University.
 
-> [!IMPORTANT] To clone and use this repository files locally, you need to have
-> [Git LFS](https://git-lfs.github.com/) installed, as all PDF and PNG files are
-> stored using Git LFS.
+> [!IMPORTANT]
+> To clone and use this repository files locally, you need to have [Git LFS](https://git-lfs.github.com/) installed, as all PDF and PNG files are stored using Git LFS.
 
 ## Code
 
